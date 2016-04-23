@@ -1,6 +1,6 @@
 #!/usr/local/bin/python
-
 import csv
+import argparse
 
 class Record:
 	industry = "Industry Unknown"
@@ -32,8 +32,15 @@ def loadIndustries(companies):
 			if company != None:
 				company.industry = row[0]
 
+# Parse input file from arguments
+parser = argparse.ArgumentParser(description='Rank stocks from CSV.')
+parser.add_argument('infile', metavar='FILE', help='The CSV file to source stocks from. See example format in example_input.csv.')
+
+args = parser.parse_args()
+infile = args.infile
+
 companies = []
-with open('input.csv', 'rb') as csvfile:
+with open(infile, 'rb') as csvfile:
 	reader = csv.reader(csvfile)
 	for row in reader:
 		rec = Record(row[0], row[1], row[3], row[4], row[5])
