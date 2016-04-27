@@ -3,8 +3,8 @@
 1. Go to the [Google Finance Stock Screener](https://www.google.com/finance#stockscreener)
 2. Set these criteria
   * Market cap >= 50M
-  * P/E Ratio >= 5 and <= 20
-  * Return on assets (TTM) (%) >= 20 and <= 150
+  * P/E Ratio >= 5 and <= 50
+  * Return on assets (5 yr avg) (%) >= 20 and <= 150
 3. Remove the other, unused criteria fields
 4. You'll want to run the tool for each of the two major exchanges, NYSE and Nasdaq
 5. Copy all records outputted into a Google Sheet (in Google Drive). Include the results of each exchange in the same spreadsheet. Sanity check: You should usually get fewer than 100 records for each exchange.
