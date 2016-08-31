@@ -3,6 +3,8 @@ import sys
 import csv
 import argparse
 
+ROA_WEIGHT = 0.5
+
 class Record:
 	industry = "Industry Unknown"
 
@@ -71,7 +73,7 @@ i = 1
 for rec in sorted_by_roa_5yr:
 	rec.roa_5yr_rank = i
 	i = i + 1
-	rec.simple_score = rec.pe_rank + ((rec.roa_ttm_rank + rec.roa_5yr_rank) / 2.0)
+	rec.simple_score = rec.pe_rank + ((rec.roa_ttm_rank + rec.roa_5yr_rank) * ROA_WEIGHT / 2.0)
 
 sorted_by_score = sorted(sorted_by_roa_5yr, key=lambda rec: rec.simple_score)
 
